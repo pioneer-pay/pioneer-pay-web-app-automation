@@ -30,6 +30,9 @@ public class HomePage{
 	@FindBy(xpath = "//div[@role='dialog']")
 	WebElement lblLogin;
 
+	@FindBy(xpath = "//button[normalize-space()='OK']")
+	WebElement btnOk;
+
 	public HomePage(WebDriver driver) {
 
 		this.driver=driver;
@@ -53,6 +56,7 @@ public class HomePage{
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.visibilityOf(lblLogin));
 		lblLogin.isDisplayed();
+		btnOk.click();
 	}
 
 }
