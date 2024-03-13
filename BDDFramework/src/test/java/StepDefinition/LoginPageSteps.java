@@ -13,17 +13,22 @@ public class LoginPageSteps extends BaseClass {
 
 	WebDriver driver;
 	LoginPage loginPage;
-
+	Scenario scenario;
+	
 	@Before
-	public void browserSetup() throws Exception {
+	public void browserSetup(Scenario scenario) throws Exception {
 		setUp();
+		this.scenario = scenario;
+
 	}
+	
 	@Given("navigate to login page URL {string}")
 	public void navigateToLoginPageUrl(String extendedUrl) {
 		navigateToUrl(extendedUrl);
 		loginPage = new LoginPage(BaseClass.driver);
 
 	}
+	
 	@When("Click on link for Log In")
 	public void clickOnLinkForLogIn() {
 		loginPage.clickLogin();
@@ -38,16 +43,12 @@ public class LoginPageSteps extends BaseClass {
 	public void userClicksOnContinue() {
 		loginPage.clickContinue();
 	}
-	Scenario scenario;
-
-	@Before
-	public void beforeScenarios(Scenario scenario) {
-		this.scenario = scenario;
-	}
+	
 	@Then("verify user logged in successfully")
 	public void verifyUserLoggedInSuccessfully() {
 		loginPage.isPopupDisplayed(scenario);
 	}
+	
 	@And("user click on ok button")
 	public void userClickOnOkButton() {
 		loginPage.clickOnOkButton();
