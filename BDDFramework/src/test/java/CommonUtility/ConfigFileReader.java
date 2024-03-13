@@ -54,6 +54,9 @@ public class ConfigFileReader {
 		else throw new RuntimeException("The Property not specified in the Configuration.properties file.");
 	}
 
+	public String getExpectedText(String data) {
+		return properties.getProperty(data);
+	}
 
 }
 
