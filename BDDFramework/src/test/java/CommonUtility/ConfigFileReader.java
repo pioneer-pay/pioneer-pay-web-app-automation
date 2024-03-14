@@ -34,6 +34,9 @@ public class ConfigFileReader {
 			throw new RuntimeException("Configuration.properties not found at " + propertyFilePath);
 		}		
 	}
+	public String getText(String data) {
+		return properties.getProperty(data);
+	}
 	
 
 	

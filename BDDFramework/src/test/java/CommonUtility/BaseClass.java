@@ -20,7 +20,7 @@ public class BaseClass {
     ConfigFileReader fileReader; 
     String browser;
 
-   public void navigateToUrl(String extendedURl) {
+   public void navigateToUrl() {
 	  String url=fileReader.getApplicationHomePageURL(fileReader.getBaseUrl());
 	  driver.get(url);
 	

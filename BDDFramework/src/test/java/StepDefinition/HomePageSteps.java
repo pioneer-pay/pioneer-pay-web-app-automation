@@ -17,10 +17,10 @@ public class HomePageSteps extends BaseClass {
 //  WebDriver driver;
   HomePage homePage;
   
-  @Given("navigate to home page URL {string}")
-  public void navigate_to_home_page_url(String extendedUrl) throws Exception {
+  @Given("navigate to home page URL")
+  public void navigate_to_home_page_url() throws Exception {
 	  setUp();
-      navigateToUrl(extendedUrl);
+      navigateToUrl();
   }
 
 
