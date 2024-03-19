@@ -1,7 +1,10 @@
 package PageObjects;
 
 import CommonUtility.ConfigFileReader;
+import io.cucumber.java.Scenario;
+import org.jsoup.Connection;
 import org.junit.Assert;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -12,7 +15,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import javax.xml.xpath.XPath;
 import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 public class SendMoneyPage {
 
@@ -79,6 +84,18 @@ public class SendMoneyPage {
     @FindBy(xpath = "//tbody/tr[4]/td[1]")
     WebElement amountToReceive;
 
+    @FindBy(xpath = "//div[@class = 'head-left']//img")
+    WebElement txnDetails;
+
+    @FindBy(xpath = "//tbody[1]//tr[1]//td[8]")
+    WebElement txnStatus;
+
+    @FindBy(xpath = "//tbody[1]//tr[1]//td[5]")
+    WebElement txnAmount;
+
+    @FindBy(xpath = "//a[normalize-space()='History']")
+    WebElement btnHistory;
+
 
     String expectedMsg;
     String actualMsg;
@@ -110,36 +127,71 @@ public class SendMoneyPage {
     }
 
     public void selectReceiver(){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,-200)");
         btnSelect.click();
         btnReview.click();
     }
 
     public void clickOnSendMoney(){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,-200)");
         txtConfirmDetails.isDisplayed();
         btnSendMoney.click();
     }
 
-    public void verifyTxnSuccess(){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(50));
-        wait.until(ExpectedConditions.visibilityOf(txtTxnStatus));
-        expectedMsg = fileReader.getData("txnSuccessMessage");
-        actualMsg = txtTxnStatus.getText();
-        Assert.assertEquals(expectedMsg,actualMsg);
+    public void clickOnReviewBtn(){
+        System.out.println("Button isSelected: "+btnSelect.isSelected());
+        btnReview.click();
     }
 
-    public void verifyErrorInsufficientFunds(){
+
+    public void verifyTxnSuccess(Scenario scenario){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+        wait.until(ExpectedConditions.textToBePresentInElement(txtTxnStatus,"Your transaction was successful!"));
+        expectedMsg = fileReader.getExpectedText("txnSuccessMessage");
+        actualMsg = txtTxnStatus.getText();
+        Assert.assertEquals(expectedMsg,actualMsg);
+        BaseClass.captureScreenshot("Transaction Successful Page",scenario);
+    }
+
+    public void verifyErrorInsufficientFunds(Scenario scenario){
         waits(txtTxnStatus);
-        expectedMsg = fileReader.getData("insufficientFundsMessage");
+        expectedMsg = fileReader.getExpectedText("insufficientFundsMessage");
         actualMsg = txtTxnStatus.getText();
+        BaseClass.captureScreenshot("Transaction Attempt with Insufficient Funds",scenario);
         Assert.assertEquals(expectedMsg,actualMsg);
 
     }
 
-    public void verifyTxnDetails(){
+    public void verifyTxnDetails(Scenario scenario){
+        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.textToBePresentInElement(transferAmount,"5000"));
         Assert.assertNotNull(exchangeRate.getText());
         Assert.assertNotNull(Fee.getText());
         Assert.assertNotNull(transferAmount.getText());
         Assert.assertNotNull(amountToReceive.getText());
+        BaseClass.captureScreenshot("Transaction Summary", scenario);
+
+    }
+
+    public void verifyErrorSelectReceiver(Scenario scenario){
+
+        expectedMsg = fileReader.getExpectedText("selectReceiverMessage");
+        actualMsg = txtConfirmDetails.getText();
+        BaseClass.captureScreenshot("Transaction Attempt without Receiver Selected",scenario);
+        Assert.assertEquals(expectedMsg,actualMsg);
+
+    }
+
+    public void verifyTxnHistory(Scenario scenario){
+        btnHistory.click();
+        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.textToBePresentInElement(txnStatus,"SUCCESS"));
+        expectedMsg = fileReader.getExpectedText("txnStatus");
+        actualMsg = txnStatus.getText();
+        Assert.assertEquals(expectedMsg,actualMsg);
+        BaseClass.captureScreenshot("Transaction History",scenario);
 
     }
 

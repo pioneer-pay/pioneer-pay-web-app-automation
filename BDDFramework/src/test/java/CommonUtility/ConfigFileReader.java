@@ -48,15 +48,13 @@ public class ConfigFileReader {
 		if(browserName != null) return browserName;
 		else throw new RuntimeException("browserName not specified in the Configuration.properties file.");
 	}
-	public String getData(String propertyName){
+	public String getExpectedText(String propertyName){
 		property = properties.getProperty(propertyName);
 		if(property != null) return property;
 		else throw new RuntimeException("The Property not specified in the Configuration.properties file.");
 	}
 
-	public String getExpectedText(String data) {
-		return properties.getProperty(data);
-	}
+
 
 }
 

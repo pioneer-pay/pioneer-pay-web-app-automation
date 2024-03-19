@@ -17,33 +17,33 @@ public class HomePageSteps extends BaseClass {
  WebDriver driver;
  HomePage homePage;
 
-    @Given("navigate to home page")
-    public void navigateToHomePage() throws Exception {
-        setUp();
-        navigateToUrl();
+//    @Given("navigate to home page")
+//    public void navigateToHomePage() throws Exception {
+//        setUp();
+//        navigateToUrl();
+//
+//        homePage = new HomePage(BaseClass.driver);
+//
+//    }
 
-        homePage = new HomePage(BaseClass.driver);
-
-    }
-
-    @When("Click on link for Log In")
-    public void clickOnLinkForLogIn() {
-        homePage.clickLogin();
-    }
-
-    @And("User enters email and password")
-    public void userEntersEmailAndPassword() {
-        homePage.enterEmailAndPassword();
-    }
-
-    @And("user clicks on continue")
-    public void userClicksOnContinue() {
-        homePage.clickContinue();
-    }
-
-    @Then("verify user logged in successfully modal is displayed.")
-    public void verifyUserLoggedInSuccessfullyModalIsDisplayed() {
-        homePage.isPopupDisplayed();
-    }
+//    @When("Click on link for Log In")
+//    public void clickOnLinkForLogIn() {
+//        homePage.clickLogin();
+//    }
+//
+//    @And("User enters email and password")
+//    public void userEntersEmailAndPassword() {
+//        homePage.enterEmailAndPassword();
+//    }
+//
+////    @And("user clicks on continue")
+////    public void userClicksOnContinue() {
+////        homePage.clickContinue();
+////    }
+//
+//    @Then("verify user logged in successfully modal is displayed.")
+//    public void verifyUserLoggedInSuccessfullyModalIsDisplayed() {
+//        homePage.isPopupDisplayed();
+//    }
 
 }
