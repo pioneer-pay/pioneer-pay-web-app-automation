@@ -14,33 +14,36 @@ import io.cucumber.java.en.*;
 
 public class HomePageSteps extends BaseClass {
 	
-//  WebDriver driver;
-  HomePage homePage;
-  
-  @Given("navigate to home page URL {string}")
-  public void navigate_to_home_page_url(String extendedUrl) throws Exception {
-	  setUp();
-      navigateToUrl(extendedUrl);
-  }
+ WebDriver driver;
+ HomePage homePage;
 
+//    @Given("navigate to home page")
+//    public void navigateToHomePage() throws Exception {
+//        setUp();
+//        navigateToUrl();
+//
+//        homePage = new HomePage(BaseClass.driver);
+//
+//    }
 
-@When("Click on Register user")
-public void click_on_register_user() {
-	homePage=new HomePage(BaseClass.driver);
-	//homePage.clickOnRegisterLink();
-    
-}
-
-@Then("verify Register page Title")
-public void verify_register_page_title() {
-	System.out.println("verify title");
-    
-}
-
-
-
-
-
-
+//    @When("Click on link for Log In")
+//    public void clickOnLinkForLogIn() {
+//        homePage.clickLogin();
+//    }
+//
+//    @And("User enters email and password")
+//    public void userEntersEmailAndPassword() {
+//        homePage.enterEmailAndPassword();
+//    }
+//
+////    @And("user clicks on continue")
+////    public void userClicksOnContinue() {
+////        homePage.clickContinue();
+////    }
+//
+//    @Then("verify user logged in successfully modal is displayed.")
+//    public void verifyUserLoggedInSuccessfullyModalIsDisplayed() {
+//        homePage.isPopupDisplayed();
+//    }
 
 }

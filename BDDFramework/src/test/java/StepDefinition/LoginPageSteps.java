@@ -13,18 +13,11 @@ public class LoginPageSteps extends BaseClass {
 
 	WebDriver driver;
 	LoginPage loginPage;
-	Scenario scenario;
 	
-	@Before
-	public void browserSetup(Scenario scenario) throws Exception {
-		setUp();
-		this.scenario = scenario;
 
-	}
-	
-	@Given("navigate to login page URL {string}")
-	public void navigateToLoginPageUrl(String extendedUrl) {
-		navigateToUrl(extendedUrl);
+	@Given("navigate to login page URL")
+	public void navigateToLoginPageUrl() {
+
 		loginPage = new LoginPage(BaseClass.driver);
 
 	}
@@ -46,7 +39,7 @@ public class LoginPageSteps extends BaseClass {
 	
 	@Then("verify user logged in successfully")
 	public void verifyUserLoggedInSuccessfully() {
-		loginPage.isPopupDisplayed(scenario);
+		loginPage.isPopupDisplayed(Hooks.getScenario());
 	}
 	
 	@And("user click on ok button")
