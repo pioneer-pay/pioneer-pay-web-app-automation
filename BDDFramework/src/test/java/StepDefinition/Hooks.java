@@ -8,36 +8,24 @@ import org.openqa.selenium.WebDriver;
 
 public class Hooks extends BaseClass {
 
-    WebDriver driver;
+    //WebDriver driver;
     static Scenario scenario;
 
 
     @Before
     public void beforeScenario(Scenario scenario) throws Exception {
-        if(scenario.getSourceTagNames().contains("@WebsiteRegistration")){
-            if (driver == null){
-                Hooks.scenario = scenario;
-                setUp();
-                navigateToUrl();
-            }
-        } else if (scenario.getSourceTagNames().contains("@WebsiteLogin")) {
-            if (driver == null){
-                Hooks.scenario =scenario;
-                setUp();
-                navigateToUrl();
-            }
-        }
-        else if (scenario.getSourceTagNames().contains("@SendMoney") || scenario.getSourceTagNames().contains("@Regression")) {
-            if (driver == null){
-                Hooks.scenario =scenario;
-                setUp();
-                navigateToUrl();
-            }
-        }
+            Hooks.scenario = scenario;
+            setUp();
+            navigateToUrl();
     }
 
     public static Scenario getScenario(){
         return scenario;
+    }
+
+    @After
+    public void tearDown(){
+        driver.close();
     }
 
 }

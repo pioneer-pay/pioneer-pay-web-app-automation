@@ -149,7 +149,7 @@ public class SendMoneyPage {
     public void verifyTxnSuccess(Scenario scenario){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
         wait.until(ExpectedConditions.textToBePresentInElement(txtTxnStatus,"Your transaction was successful!"));
-        expectedMsg = fileReader.getExpectedText("txnSuccessMessage");
+        expectedMsg = fileReader.getText("txnSuccessMessage");
         actualMsg = txtTxnStatus.getText();
         Assert.assertEquals(expectedMsg,actualMsg);
         BaseClass.captureScreenshot("Transaction Successful Page",scenario);
@@ -157,7 +157,7 @@ public class SendMoneyPage {
 
     public void verifyErrorInsufficientFunds(Scenario scenario){
         waits(txtTxnStatus);
-        expectedMsg = fileReader.getExpectedText("insufficientFundsMessage");
+        expectedMsg = fileReader.getText("insufficientFundsMessage");
         actualMsg = txtTxnStatus.getText();
         BaseClass.captureScreenshot("Transaction Attempt with Insufficient Funds",scenario);
         Assert.assertEquals(expectedMsg,actualMsg);
@@ -177,7 +177,7 @@ public class SendMoneyPage {
 
     public void verifyErrorSelectReceiver(Scenario scenario){
 
-        expectedMsg = fileReader.getExpectedText("selectReceiverMessage");
+        expectedMsg = fileReader.getText("selectReceiverMessage");
         actualMsg = txtConfirmDetails.getText();
         BaseClass.captureScreenshot("Transaction Attempt without Receiver Selected",scenario);
         Assert.assertEquals(expectedMsg,actualMsg);
@@ -188,7 +188,7 @@ public class SendMoneyPage {
         btnHistory.click();
         WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
         wait.until(ExpectedConditions.textToBePresentInElement(txnStatus,"SUCCESS"));
-        expectedMsg = fileReader.getExpectedText("txnStatus");
+        expectedMsg = fileReader.getText("txnStatus");
         actualMsg = txnStatus.getText();
         Assert.assertEquals(expectedMsg,actualMsg);
         BaseClass.captureScreenshot("Transaction History",scenario);
