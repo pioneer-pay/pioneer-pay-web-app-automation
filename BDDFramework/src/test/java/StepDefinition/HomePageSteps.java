@@ -19,23 +19,23 @@ public class HomePageSteps extends BaseClass {
   
   @Given("navigate to home page URL")
   public void navigate_to_home_page_url() throws Exception {
-	  setUp();
-      navigateToUrl();
+//	  setUp();
+//      navigateToUrl();
   }
 
 
-@When("Click on Register user")
-public void click_on_register_user() {
-	homePage=new HomePage(BaseClass.driver);
-	//homePage.clickOnRegisterLink();
-    
-}
-
-@Then("verify Register page Title")
-public void verify_register_page_title() {
-	System.out.println("verify title");
-    
-}
+//@When("Click on Register user")
+//public void click_on_register_user() {
+//	homePage=new HomePage(BaseClass.driver);
+//	//homePage.clickOnRegisterLink();
+//
+//}
+//
+//@Then("verify Register page Title")
+//public void verify_register_page_title() {
+//	System.out.println("verify title");
+//
+//}
 
 
 

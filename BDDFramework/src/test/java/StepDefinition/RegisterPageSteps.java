@@ -18,14 +18,14 @@ public class RegisterPageSteps extends BaseClass {
 
 	@Before
 	public void browserSetup(Scenario scenario) throws Exception {
-		setUp();
+//		setUp();
 		this.scenario = scenario;
 
 	}
 
 	@Given("navigate to registration page URL {string}")
-	public void NavigateToRegistrationPageUrl(String extendedUrl) throws Exception {
-		navigateToUrl(extendedUrl);
+	public void NavigateToRegistrationPageUrl() throws Exception {
+		navigateToUrl();
 	}
 	
 	@When("user click on register tab")

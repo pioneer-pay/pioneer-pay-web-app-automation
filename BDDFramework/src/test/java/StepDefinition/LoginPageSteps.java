@@ -22,9 +22,9 @@ public class LoginPageSteps extends BaseClass {
 
 	}
 	
-	@Given("navigate to login page URL {string}")
-	public void navigateToLoginPageUrl(String extendedUrl) {
-		navigateToUrl(extendedUrl);
+	@Given("navigate to login page URL")
+	public void navigateToLoginPageUrl() {
+		navigateToUrl();
 		loginPage = new LoginPage(BaseClass.driver);
 
 	}
