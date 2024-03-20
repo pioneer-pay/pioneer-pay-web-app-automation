@@ -50,8 +50,8 @@ public class LoginPage{
 
 	public void enterEmailAndPassword(){
 		configFileReader = new ConfigFileReader();
-		txtEmail.sendKeys(configFileReader.getExpectedText("emailId"));
-		txtPassword.sendKeys(configFileReader.getExpectedText("password"));
+		txtEmail.sendKeys(configFileReader.getText("emailId"));
+		txtPassword.sendKeys(configFileReader.getText("password"));
 	}
 
 	public void clickContinue(){
@@ -60,10 +60,10 @@ public class LoginPage{
 
 	public void isPopupDisplayed(Scenario scenario){
 		configFileReader = new ConfigFileReader();
-		String xpath = String.format("//h2[@id='swal2-title']", configFileReader.getExpectedText("loginMessage"));
+		String xpath = String.format("//h2[@id='swal2-title']", configFileReader.getText("loginMessage"));
 		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(3000));
 		WebElement loginMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
-		Assert.assertEquals(configFileReader.getExpectedText("loginMessage"), loginMessage.getText());
+		Assert.assertEquals(configFileReader.getText("loginMessage"), loginMessage.getText());
 		BaseClass.captureScreenshot("login screenshot", scenario);
 		System.out.println("Both actual and expected results are same, \n User is logged in successfully");
 

@@ -16,6 +16,7 @@ public class RegisterPageSteps extends BaseClass {
 	RegisterPage registerPage;
 	Scenario scenario;
 
+<<<<<<< HEAD
 //	@Before
 //	public void browserSetup(Scenario scenario) throws Exception {
 //		setUp();
@@ -26,6 +27,11 @@ public class RegisterPageSteps extends BaseClass {
 	@Given("navigate to registration page URL")
 	public void NavigateToRegistrationPageUrl() throws Exception {
 		navigateToUrl();
+=======
+	@Given("navigate to registration page URL")
+	public void NavigateToRegistrationPageUrl(){
+
+>>>>>>> 5bb5cf3b82924f9297de0a1469e58622acadeffb
 	}
 	
 	@When("user click on register tab")
@@ -55,7 +61,7 @@ public class RegisterPageSteps extends BaseClass {
 	
 	@Then("verify user registered successfully")
 	public void verifyUserRegisteredSuccessfully() {
-		registerPage.isPopupDisplay(scenario);
+		registerPage.isPopupDisplay(Hooks.getScenario());
 	}
 
 	@And("click on ok button")
