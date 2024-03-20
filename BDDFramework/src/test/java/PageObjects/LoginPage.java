@@ -46,7 +46,7 @@ public class LoginPage{
 
 	public void clickLogin(){
 		btnLogin.click();
-	};
+	}
 
 	public void enterEmailAndPassword(){
 		configFileReader = new ConfigFileReader();

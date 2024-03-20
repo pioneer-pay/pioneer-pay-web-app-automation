@@ -2,7 +2,7 @@
 Feature: "Application login"
 
   Scenario: Verify user login is Successful with valid credentials.
-    Given navigate to login page URL "ExtendedHomeUrl"
+    Given navigate to login page URL 
     When Click on link for Log In
     And User enters email and password
     And user clicks on continue

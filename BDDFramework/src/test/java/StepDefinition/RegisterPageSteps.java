@@ -16,16 +16,16 @@ public class RegisterPageSteps extends BaseClass {
 	RegisterPage registerPage;
 	Scenario scenario;
 
-	@Before
-	public void browserSetup(Scenario scenario) throws Exception {
-		setUp();
-		this.scenario = scenario;
+//	@Before
+//	public void browserSetup(Scenario scenario) throws Exception {
+//		setUp();
+//		this.scenario = scenario;
+//
+//	}
 
-	}
-
-	@Given("navigate to registration page URL {string}")
-	public void NavigateToRegistrationPageUrl(String extendedUrl) throws Exception {
-		navigateToUrl(extendedUrl);
+	@Given("navigate to registration page URL")
+	public void NavigateToRegistrationPageUrl() throws Exception {
+		navigateToUrl();
 	}
 	
 	@When("user click on register tab")
