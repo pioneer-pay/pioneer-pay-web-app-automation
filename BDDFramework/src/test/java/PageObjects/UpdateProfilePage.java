@@ -151,7 +151,7 @@ public class UpdateProfilePage {
         action.moveToElement(elementWithToolTip).perform();
         String tooltip_text = elementWithToolTip.getAttribute("title");
         BaseClass.captureScreenshot("updated", scenario);
-        okButton.click();
+
 
     }
 
