@@ -26,24 +26,15 @@ public class BaseClass {
 	ConfigFileReader fileReader;
 	String browser;
 
-<<<<<<< HEAD
 	public void navigateToUrl() {
 		String url=fileReader.getApplicationHomePageURL(fileReader.getBaseUrl());
 		driver.get(url);
 	}
 
-	public void setUp() throws Exception {
-		try {
-=======
-   public void navigateToUrl() {
-	  String url=fileReader.getApplicationHomePageURL(fileReader.getBaseUrl());
-	  driver.get(url);
 	
-    }
 
    public void setUp() throws Exception {
 	   try {
->>>>>>> 5bb5cf3b82924f9297de0a1469e58622acadeffb
 			fileReader =new ConfigFileReader();
 			browser = fileReader.getBrowser();
 			System.out.println("browser name: "+browser);

@@ -13,19 +13,13 @@ public class LoginPageSteps extends BaseClass {
 
 	WebDriver driver;
 	LoginPage loginPage;
-	
 
-<<<<<<< HEAD
-	}
+	
 	
 	@Given("navigate to login page URL")
 	public void navigateToLoginPageUrl() {
-		navigateToUrl();
-=======
-	@Given("navigate to login page URL")
-	public void navigateToLoginPageUrl() {
 
->>>>>>> 5bb5cf3b82924f9297de0a1469e58622acadeffb
+
 		loginPage = new LoginPage(BaseClass.driver);
 
 	}

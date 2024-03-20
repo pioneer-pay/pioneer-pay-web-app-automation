@@ -6,8 +6,6 @@ import org.openqa.selenium.WebDriver;
 
 import CommonUtility.BaseClass;
 import PageObjects.TransactionHistoryPage;
-//import io.cucumber.java.After;
-import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import io.cucumber.java.en.*;
 
@@ -18,13 +16,7 @@ public class TransactionHistorySteps extends BaseClass {
 	TransactionHistoryPage transactionHistoryPage;
 	Scenario scenario;
 
-	@Before
-	public void browserSetup(Scenario scenario) throws Exception {
-		setUp();
-		this.scenario = scenario;
 
-
-	}
 	@Given("the user is logged in to the transaction history module")
 	public void theUserIsLoggedInToTheTransactionHistoryModule() {
 		transactionHistoryPage = new TransactionHistoryPage(BaseClass.driver);
@@ -42,7 +34,7 @@ public class TransactionHistorySteps extends BaseClass {
 	}
 	@Then("the user should see list of previous transaction")
 	public void theUserShouldSeeListOfPreviousTransaction() {
-		transactionHistoryPage.isListOfPreviousTransactionsDisplayed(scenario);
+		transactionHistoryPage.isListOfPreviousTransactionsDisplayed(Hooks.getScenario());
 	}
 
 
