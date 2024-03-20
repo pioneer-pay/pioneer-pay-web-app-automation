@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(features = "src/test/java/Features/",
                   glue = "StepDefinition", plugin = { "pretty", "json:target/cucumber-reports/Cucumber.json",
         "junit:target/cucumber-reports/Cucumber.xml",
-        "html:target/cucumber-reports/Cucumber.html",}, tags ="@SendMoney"
+        "html:target/cucumber-reports/Cucumber.html",}, tags ="@WebsiteTransactionHistory"
 
 
 )

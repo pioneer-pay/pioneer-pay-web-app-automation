@@ -8,13 +8,13 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class ConfigFileReader {
-	
+
 	private Properties properties;
 	private final String propertyFilePath= System.getProperty("user.dir")+"/resources/TestData/Configuration.properties";
-	 String baserurl;
-	 String property;
-    String browserName;
-	
+	String baserurl;
+	String property;
+	String browserName;
+
 	public ConfigFileReader(){
 		BufferedReader reader;
 		try {
@@ -31,7 +31,7 @@ public class ConfigFileReader {
 			throw new RuntimeException("Configuration.properties not found at " + propertyFilePath);
 		}		
 	}
-	
+
 
 	public String getBaseUrl() {
 		baserurl = properties.getProperty("baseUrl");
@@ -56,6 +56,6 @@ public class ConfigFileReader {
 
 
 
+
 }
 
-	

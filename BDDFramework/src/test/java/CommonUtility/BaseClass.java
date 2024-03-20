@@ -26,11 +26,12 @@ public class BaseClass {
 	ConfigFileReader fileReader;
 	String browser;
 
-   public void navigateToUrl() {
-	  String url=fileReader.getApplicationHomePageURL(fileReader.getBaseUrl());
-	  driver.get(url);
+	public void navigateToUrl() {
+		String url=fileReader.getApplicationHomePageURL(fileReader.getBaseUrl());
+		driver.get(url);
+	}
+
 	
-    }
 
    public void setUp() throws Exception {
 	   try {
