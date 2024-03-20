@@ -10,11 +10,7 @@ import io.cucumber.java.en.Then;
 public class UpdateProfileSteps extends BaseClass {
 
     UpdateProfilePage updateProfilePage;
-    Scenario scenario;
-    @Before
-    public void beforeScenario(Scenario scenario){
-        this.scenario=scenario;
-    }
+
     @Given("login pioneer pay application and click on my profile")
     public void goToMyProfile() throws Exception {
         updateProfilePage = new UpdateProfilePage(BaseClass.driver);
@@ -33,7 +29,7 @@ public class UpdateProfileSteps extends BaseClass {
 
     @Then("verify updated profile")
     public void verifyUpdatedProfile() {
-        updateProfilePage.verify(scenario);
+        updateProfilePage.verify(Hooks.getScenario());
     }
 
     @Given("click on my profile")
@@ -55,7 +51,7 @@ public class UpdateProfileSteps extends BaseClass {
 
     @Then("verify error messages.")
     public void verifyErrorMessages() {
-        updateProfilePage.verifyMessages(scenario);
+        updateProfilePage.verifyMessages(Hooks.getScenario());
     }
 
     @Given("click on my profile button")
@@ -76,6 +72,6 @@ public class UpdateProfileSteps extends BaseClass {
 
     @Then("verify error message.")
     public void verifyErrorMessage() {
-        updateProfilePage.verifyErrorMessage(scenario);
+        updateProfilePage.verifyErrorMessage(Hooks.getScenario());
     }
 }

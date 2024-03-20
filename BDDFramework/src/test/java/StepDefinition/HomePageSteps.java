@@ -1,29 +1,29 @@
-package StepDefinition;
-
-import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-
-import CommonUtility.BaseClass;
-import PageObjects.HomePage;
-import io.cucumber.java.en.*;
-
-
-public class HomePageSteps extends BaseClass {
-	
-//  WebDriver driver;
-  HomePage homePage;
-  
-  @Given("navigate to home page URL")
-  public void navigate_to_home_page_url() throws Exception {
+//package StepDefinition;
+//
+//import org.junit.Assert;
+//import org.openqa.selenium.By;
+//import org.openqa.selenium.WebDriver;
+//import org.openqa.selenium.WebElement;
+//import org.openqa.selenium.chrome.ChromeDriver;
+//import org.openqa.selenium.chrome.ChromeOptions;
+//
+//import CommonUtility.BaseClass;
+//import PageObjects.HomePage;
+//import io.cucumber.java.en.*;
+//
+//
+//public class HomePageSteps extends BaseClass {
+//
+////  WebDriver driver;
+//  HomePage homePage;
+//
+//  @Given("navigate to home page URL")
+//  public void navigate_to_home_page_url() throws Exception {
 //	  setUp();
 //      navigateToUrl();
-  }
-
-
+//  }
+//
+//
 //@When("Click on Register user")
 //public void click_on_register_user() {
 //	homePage=new HomePage(BaseClass.driver);
@@ -36,11 +36,11 @@ public class HomePageSteps extends BaseClass {
 //	System.out.println("verify title");
 //
 //}
-
-
-
-
-
-
-
-}
+//
+//
+//
+//
+//
+//
+//
+//}
