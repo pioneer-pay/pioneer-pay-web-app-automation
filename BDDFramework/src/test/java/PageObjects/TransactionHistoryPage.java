@@ -38,7 +38,7 @@ public class TransactionHistoryPage {
 
 	public void isTransactionHistoryDetailsDisplayed() {
 		configFileReader = new ConfigFileReader();
-		String expectedText = configFileReader.getExpectedText("transactionMessage");
+		String expectedText = configFileReader.getText("transactionMessage");
 		String xpath = String.format("//th[normalize-space(text())='%s']", expectedText);
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 		try {
