@@ -15,7 +15,7 @@ public class LoginPageSteps extends BaseClass {
 	LoginPage loginPage;
 
 	
-	
+
 	@Given("navigate to login page URL")
 	public void navigateToLoginPageUrl() {
 

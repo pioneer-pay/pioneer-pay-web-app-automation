@@ -33,6 +33,8 @@ public class ConfigFileReader {
 	}
 
 
+
+
 	public String getBaseUrl() {
 		baserurl = properties.getProperty("baseUrl");
 		if(baserurl != null) return baserurl;

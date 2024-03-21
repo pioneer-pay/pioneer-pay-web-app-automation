@@ -13,10 +13,10 @@
 //
 //
 //public class HomePageSteps extends BaseClass {
-//	
+//
 ////  WebDriver driver;
 //  HomePage homePage;
-//  
+//
 //  @Given("navigate to home page URL")
 //  public void navigate_to_home_page_url() throws Exception {
 //	  setUp();
@@ -28,13 +28,13 @@
 //public void click_on_register_user() {
 //	homePage=new HomePage(BaseClass.driver);
 //	//homePage.clickOnRegisterLink();
-//    
+//
 //}
 //
 //@Then("verify Register page Title")
 //public void verify_register_page_title() {
 //	System.out.println("verify title");
-//    
+//
 //}
 //
 //

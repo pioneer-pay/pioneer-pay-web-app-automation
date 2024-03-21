@@ -27,7 +27,7 @@ public class RegisterPageSteps extends BaseClass {
 	@Given("navigate to registration page URL")
 	public void NavigateToRegistrationPageUrl() throws Exception {
 		navigateToUrl();
-	}	
+	}
 	@When("user click on register tab")
 	public void userClickOnRegisterTab() {
 		registerPage=new RegisterPage(BaseClass.driver);

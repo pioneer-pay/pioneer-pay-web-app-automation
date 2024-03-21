@@ -31,7 +31,7 @@ public class BaseClass {
 		driver.get(url);
 	}
 
-	
+
 
    public void setUp() throws Exception {
 	   try {
