@@ -13,11 +13,8 @@ import org.openqa.selenium.WebDriver;
 
 public class SendMoneySteps {
 
-    WebDriver driver;
 
     SendMoneyPage sendMoneyPage;
-
-    Scenario scenario;
 
 
     @When("user selects send from country {string} and selects to country as {string}.")
