@@ -10,11 +10,7 @@ import io.cucumber.java.en.Then;
 
 public class UpdateAccountDetailsSteps {
     UpdateAccountDetailsPage updateAccountDetailsPage;
-    Scenario scenario;
-    @Before
-    public void beforeScenario(Scenario scenario){
-        this.scenario=scenario;
-    }
+
 
     @Given("clicks on my profile and go to the account details update")
     public void clicksOnMyProfileAndGoToTheAccountDetailsUpdate() {
@@ -30,12 +26,12 @@ public class UpdateAccountDetailsSteps {
 
     @And("clicks on update button")
     public void clicksOnUpdateButton() {
-        updateAccountDetailsPage.clickOnSubmit(scenario);
+        updateAccountDetailsPage.clickOnSubmit(Hooks.getScenario());
     }
 
     @Then("verify updated account details")
     public void verifyUpdatedAccountDetails() {
-        updateAccountDetailsPage.verifyAccountDetails(scenario);
+        updateAccountDetailsPage.verifyAccountDetails(Hooks.getScenario());
     }
 
     @Given("click on my profile and go to the account details update")
@@ -52,11 +48,11 @@ public class UpdateAccountDetailsSteps {
 
     @And("clicks on update button of account details")
     public void clicksOnUpdateButtonOfAccountDetails() {
-        updateAccountDetailsPage.clickOnSubmit(scenario);
+        updateAccountDetailsPage.clickOnSubmit(Hooks.getScenario());
     }
 
     @Then("verify error messages")
     public void verifyErrorMessages() {
-        updateAccountDetailsPage.verifyTooltipMessage(scenario);
+        updateAccountDetailsPage.verifyTooltipMessage(Hooks.getScenario());
     }
 }
