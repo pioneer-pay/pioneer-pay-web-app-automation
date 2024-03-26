@@ -16,25 +16,25 @@ public class RegisterPageSteps extends BaseClass {
 	RegisterPage registerPage;
 	Scenario scenario;
 
-	@Before
-	public void browserSetup(Scenario scenario) throws Exception {
-//		setUp();
-		this.scenario = scenario;
 
-	}
+	//	@Before
+	//	public void browserSetup(Scenario scenario) throws Exception {
+	//		setUp();
+	//		this.scenario = scenario;
+	//
+	//	}
 
-	@Given("navigate to registration page URL {string}")
+	@Given("navigate to registration page URL")
 	public void NavigateToRegistrationPageUrl() throws Exception {
 		navigateToUrl();
 	}
-	
 	@When("user click on register tab")
 	public void userClickOnRegisterTab() {
 		registerPage=new RegisterPage(BaseClass.driver);
 		registerPage.clickOnRegisterLink();
-		
+
 	}
-	
+
 	@And("user enters email")
 	public void userEntersEmail() {
 		registerPage.enterUsersEmail();
@@ -46,16 +46,16 @@ public class RegisterPageSteps extends BaseClass {
 
 
 	}
-	
+
 	@Then("user clicks on register button")
 	public void userClicksOnRegisterButton() {
 		registerPage.clickOnRegister();
 
 	}
-	
+
 	@Then("verify user registered successfully")
 	public void verifyUserRegisteredSuccessfully() {
-		registerPage.isPopupDisplay(scenario);
+		registerPage.isPopupDisplay(Hooks.getScenario());
 	}
 
 	@And("click on ok button")

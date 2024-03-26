@@ -7,12 +7,17 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Properties;
 
+import io.cucumber.java.Before;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import io.cucumber.java.Scenario;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 public class BaseClass {
 	public static WebDriver driver;
@@ -21,12 +26,13 @@ public class BaseClass {
 	ConfigFileReader fileReader;
 	String browser;
 
-   public void navigateToUrl() {
-	  String url=fileReader.getApplicationHomePageURL(fileReader.getBaseUrl());
-	  driver.get(url);
-	
-    }
-   
+	public void navigateToUrl() {
+		String url=fileReader.getApplicationHomePageURL(fileReader.getBaseUrl());
+		driver.get(url);
+	}
+
+
+
    public void setUp() throws Exception {
 	   try {
 			fileReader =new ConfigFileReader();
@@ -40,13 +46,22 @@ public class BaseClass {
 			ChromeOptions options=new ChromeOptions();
 			driver=new ChromeDriver(options);
 			driver.manage().window().maximize();
+		}else if (browser.equalsIgnoreCase("edge")) {
+			System.setProperty("webdriver.edge.driver",System.getProperty("user.dir") + "/resources/drivers/msedgedriver.exe");
+			EdgeOptions options = new EdgeOptions();
+			driver = new EdgeDriver(options);
+			driver.manage().window().maximize();
+
+		}else if (browser.equalsIgnoreCase("firefox")) {
+			System.setProperty("webdriver.gecko.driver",System.getProperty("user.dir") + "/resources/drivers/geckodriver.exe");
+			FirefoxOptions options = new FirefoxOptions();
+			driver = new FirefoxDriver(options);
+			driver.manage().window().maximize();
+
 		}else {
 			throw new Exception("incorrect browser");
 		}
-
-
-
-	}
+   }
 
 	public static void captureScreenshot(String screenshotName, Scenario scenario) {
 

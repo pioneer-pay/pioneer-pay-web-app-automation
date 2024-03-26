@@ -49,11 +49,11 @@ public class RegisterPage{
 	}
 	public void enterUsersEmail() {
 		configFileReader = new ConfigFileReader();
-		emailId.sendKeys(configFileReader.getExpectedText("emailId"));
+		emailId.sendKeys(configFileReader.getText("emailId"));
 
 	}
 	public void enterPassword() {
-		password.sendKeys(configFileReader.getExpectedText("password"));
+		password.sendKeys(configFileReader.getText("password"));
 
 	}
 	public void clickOnRegister() {
@@ -61,10 +61,10 @@ public class RegisterPage{
 	}
 	public void isPopupDisplay(Scenario scenario){
 		configFileReader = new ConfigFileReader();
-		String xpath = String.format("//h2[@id='swal2-title']", configFileReader.getExpectedText("registerMessage"));
+		String xpath = String.format("//h2[@id='swal2-title']", configFileReader.getText("registerMessage"));
 		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
 		WebElement registerMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
-		Assert.assertEquals(configFileReader.getExpectedText("registerMessage"), registerMessage.getText());
+		Assert.assertEquals(configFileReader.getText("registerMessage"), registerMessage.getText());
 		BaseClass.captureScreenshot("register screenshot", scenario);
 		System.out.println("Both actual and expected results are same, \n User is registered successfully");
 	}

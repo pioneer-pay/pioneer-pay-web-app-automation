@@ -115,7 +115,7 @@ public class UpdateProfilePage {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h2[@id='swal2-title']")));
         String actualText = successfulMessage.getText();
-        String expectedText = configFileReader.getExpectedText("expectedMessage");
+        String expectedText = configFileReader.getText("expectedMessage");
 
         Assert.assertEquals(expectedText,actualText);
         BaseClass.captureScreenshot("updated", scenario);
@@ -151,7 +151,7 @@ public class UpdateProfilePage {
         action.moveToElement(elementWithToolTip).perform();
         String tooltip_text = elementWithToolTip.getAttribute("title");
         BaseClass.captureScreenshot("updated", scenario);
-        okButton.click();
+
 
     }
 
@@ -184,7 +184,7 @@ public class UpdateProfilePage {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h2[@id='swal2-title']")));
         String actualText = errorMessage.getText();
-        String expectedText = configFileReader.getExpectedText("errorMessage");
+        String expectedText = configFileReader.getText("errorMessage");
 
         Assert.assertEquals(expectedText,actualText);
         okButton.click();
