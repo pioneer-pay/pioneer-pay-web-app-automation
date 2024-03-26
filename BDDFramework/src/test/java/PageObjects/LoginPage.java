@@ -16,6 +16,8 @@ import io.cucumber.java.Scenario;
 
 import java.time.Duration;
 
+//import java.time.Duration;
+
 public class LoginPage{
 
 	WebDriver driver ;
@@ -46,7 +48,7 @@ public class LoginPage{
 
 	public void clickLogin(){
 		btnLogin.click();
-	};
+	}
 
 	public void enterEmailAndPassword(){
 		configFileReader = new ConfigFileReader();
