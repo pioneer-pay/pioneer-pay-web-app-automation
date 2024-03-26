@@ -1,5 +1,5 @@
 @SendMoney
-Feature: "Application login"
+Feature: "Send Money"
 
   Background: Verify user login is Successful with valid credentials.
     Given navigate to login page URL

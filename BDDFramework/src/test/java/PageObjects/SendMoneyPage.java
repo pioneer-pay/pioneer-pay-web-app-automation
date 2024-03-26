@@ -129,6 +129,7 @@ public class SendMoneyPage {
     public void selectReceiver(){
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,-200)");
+        js.executeScript("window.scrollBy(0,300)");
         btnSelect.click();
         btnReview.click();
     }
