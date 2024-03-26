@@ -21,7 +21,7 @@ Feature: "Profile Update"
       | Dipak       |
 
   @UpdateProfile
-  Scenario: update profile with empty fields and verify messages
+  Scenario: update profile with empty fields and verify error messages
     Given click on my profile
     And  fill all required details with invalid information
     And click on update button
